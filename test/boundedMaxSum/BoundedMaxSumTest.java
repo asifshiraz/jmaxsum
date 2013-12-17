@@ -52,7 +52,7 @@ public class BoundedMaxSumTest {
     public static void setUpClass() throws Exception {
         COP_Instance cop = null;
         try {
-            cop = Cerberus.getInstanceFromFile("/home/mik/NetBeansProjects/jMaxSumSVN/bounded_simple.cop2");
+            cop = Cerberus.getInstanceFromFile("bounded_simple.cop2");
         } catch (InvalidInputFileException ex) {
             ex.printStackTrace();
         }

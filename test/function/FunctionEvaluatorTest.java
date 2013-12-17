@@ -55,7 +55,7 @@ public class FunctionEvaluatorTest {
         COP_Instance cop = null;
         try {
             //cop = Cerberus.getInstanceFromFile("/home/mik/NetBeansProjects/jMaxSumSVN/bounded_simple.cop2");
-            cop = Cerberus.getInstanceFromFile("/home/mik/NetBeansProjects/jMaxSumSVN/bounded_arity5.cop2");
+            cop = Cerberus.getInstanceFromFile("bounded_arity5.cop2");
         } catch (InvalidInputFileException ex) {
             ex.printStackTrace();
         }
@@ -216,7 +216,7 @@ public class FunctionEvaluatorTest {
 
         COP_Instance cop = null;
         try {
-            cop = Cerberus.getInstanceFromFile("/home/mik/NetBeansProjects/jMaxSumSVN/bounded_arity5.cop2");
+            cop = Cerberus.getInstanceFromFile("bounded_arity5.cop2");
         } catch (InvalidInputFileException ex) {
             ex.printStackTrace();
         }

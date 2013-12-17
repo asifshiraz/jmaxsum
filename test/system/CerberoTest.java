@@ -57,7 +57,7 @@ public class CerberoTest {
     @Test
     public void testGetInstanceFromFile() {
         System.out.println("getInstanceFromFile");
-        String fname = "/home/mik/Documenti/NetBeansProjects/maxSum/paper.cop2";
+        String fname = "paper.cop2";
         COP_Instance expResult = null;
         try {
             COP_Instance result = Cerberus.getInstanceFromFile(fname);

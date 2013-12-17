@@ -81,7 +81,7 @@ public class MaxSumOperatorTest {
 
         cerbero = new Cerberus();
         try {
-            cop = cerbero.getInstanceFromFile("/home/mik/NetBeansProjects/maxSum/paper.cop2");
+            cop = cerbero.getInstanceFromFile("paper.cop2");
 
             otimes = new OTimes_MaxSum(mfactory);
             oplus = new OPlus_MaxSum(mfactory);

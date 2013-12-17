@@ -33,6 +33,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import powerGrid.PowerGrid;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -89,7 +90,7 @@ public class WalkGridTest {
     @Test
     public void testGetOverloadedGenerator() throws Exception {
         System.out.println("getOverloadedGenerator");
-        PowerGrid pg = new PowerGrid("/home/mik/NetBeansProjects/jMaxSumSVN/pgtest.pg");
+        PowerGrid pg = new PowerGrid("pgtest.pg");
         Relaxable_MS_COP_Instance cop = pg.getCopMnotInfNoCo2();
         WalkGrid instance = new WalkGrid(cop);
 
@@ -167,6 +168,7 @@ public class WalkGridTest {
      * Test of solve method, of class WalkGrid.
      */
     @Test
+    @Ignore
     public void testSolve() throws Exception {
         System.out.println("solve");
         //PowerGrid pg = new PowerGrid("/home/mik/NetBeansProjects/jMaxSumSVN/pgtest.pg");
