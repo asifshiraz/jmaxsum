@@ -22,14 +22,18 @@ import factorgraph.NodeArgument;
 import factorgraph.NodeFunction;
 import factorgraph.NodeVariable;
 import function.TabularFunction;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
+
 import maxsum.Agent;
 import maxsum.MS_COP_Instance;
 import system.COP_Instance;
@@ -48,6 +52,7 @@ public class Cerberus {
 
     //COP_Instance instance;
 
+    
     /**
      * Read a file and create an instance.
      * @param fname path to instance file
@@ -57,6 +62,16 @@ public class Cerberus {
         return getInstanceFromFile(fname, false,0,0);
     }
 
+    public static COP_Instance getInstanceFromFile(String fname, boolean oldFormat, int MaxValue, double MultConst) throws InvalidInputFileException{
+    	BufferedReader breader = null;
+    	try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fname)));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return getInstanceFromFile(breader, false,MaxValue,MultConst);
+    }
     /**
      * Read a file and create an instance.
      *
@@ -66,17 +81,14 @@ public class Cerberus {
      * @param MultConst scale factor 
      * @return the instance
      */
-    public static COP_Instance getInstanceFromFile(String fname, boolean oldFormat, int MaxValue, double MultConst) throws InvalidInputFileException{
+    public static COP_Instance getInstanceFromFile(BufferedReader in, boolean oldFormat, int MaxValue, double MultConst) throws InvalidInputFileException{
         HashSet<NodeVariable> nodevariables = new HashSet<NodeVariable>();
         HashSet<NodeFunction> nodefunctions = new HashSet<NodeFunction>();
         HashSet<NodeArgument> nodeargumens = new HashSet<NodeArgument>();
         HashSet<Agent> agents = new HashSet<Agent>();
 
 
-
         try{
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-					new FileInputStream(fname)));
             String line = in.readLine();
 
             Agent agent = null;

@@ -7,7 +7,10 @@ package test;
 import boundedMaxSum.BoundedMaxSum;
 import boundedMaxSum.InstanceCloner;
 import hacks.ScrewerUp;
+
 import java.util.Random;
+
+import exception.InvalidInputFileException;
 import maxsum.MS_COP_Instance;
 import misc.Utils;
 import system.COP_Instance;
@@ -39,7 +42,7 @@ public class Main {
         try {
 
             String[] paths = {
-                //"/home/mik/NetBeansProjects/maxSum/copTest.cop2",
+            	"D:\\EclipseWorkspace\\jmaxsum\\copTest.cop2",
                 //"/home/mik/NetBeansProjects/jMaxSumSVN/input.cop2",
                 //"/home/mik/NetBeansProjects/maxSum/paper.cop2",
                 //"/home/mik/NetBeansProjects/maxSum/paper_multi.cop2",
@@ -51,7 +54,7 @@ public class Main {
                 //"/home/mik/NetBeansProjects/jMaxSumSVN/test_infinity_4.cop2",
                 //"/home/mik/Documenti/univr/Ragionamento Automatico/stage/report/DCOPProblem/Node200Domain3InducedWidth2Den2.0e-2-30.dcop"
                 //"/home/mik/Documenti/univr/Ragionamento Automatico/stage/report/DCOPProblem/Node20Domain03InducedWidth5Den0.1-01.dcop",
-                "/home/fabio/artificial_intelligence/jmaxsum/jmaxsum/232.pg",
+                //"D:\\EclipseWorkspace\\jmaxsum\\232.pg"
                 //"/home/mik/NetBeansProjects/jMaxSumSVN/report/2/0.25/0.pg",
                 //"/home/mik/NetBeansProjects/jMaxSumSVN/232.pg",
                 //"/home/mik/NetBeansProjects/jMaxSumSVN/dcopInput.cop",
@@ -78,7 +81,7 @@ public class Main {
                 }*/
 
 
-                boolean powerGridV = true;
+                boolean powerGridV = false;
                 String filepath = path;
                 boolean oldformatV = false;
                 boolean screwupV = false;
@@ -283,5 +286,18 @@ public class Main {
         }
 
         System.out.println("Finish in " + ((System.currentTimeMillis() - startTime) / (double) 1000) + " s");
+    }
+    
+    public double CalculateMaxSum(int[] inputs)
+    {
+    	boolean oldformatV = false;
+    	COP_Instance input_cop;
+    	try {
+			COP_Instance original_cop = Cerberus.getInstanceFromFile("", oldformatV,100,10000);
+		} catch (InvalidInputFileException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return 1;
     }
 }
