@@ -22,10 +22,16 @@ import factorgraph.NodeArgument;
 import factorgraph.NodeFunction;
 import factorgraph.NodeVariable;
 import function.FunctionEvaluator;
+
 import java.io.FileOutputStream;
+import java.util.AbstractMap.SimpleEntry;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import maxsum.Agent;
 import messages.PostService;
 import operation.Operator;
@@ -259,17 +265,32 @@ public abstract class COP_Instance {
             status.append("err;");
         }
 
-        for (Agent agent : this.getAgents()) {
-            for (NodeVariable variable : agent.getVariables()) {
+        for (SimpleEntry<String,String> agentResult : GetMaxValues()) {
+            //for (NodeVariable variable : agent.getVariables()) { unifying all agent results for purposes of roversim
                 try {
-                    status.append(variable.toString()).append("=").append(variable.getStateArgument().toString()).append(";");
+                    status.append(agentResult.getKey()).append("=").append(agentResult.getValue()).append(";");
                 } catch (Exception e) {
-                    status.append(variable.toString()).append("=err;");
+                    status.append(agentResult.getKey()).append("=err;");
                 }
-            }
+            //}
         }
 
         return status.toString();
+    }
+    
+    public ArrayList<SimpleEntry<String, String>> GetMaxValues()//developed for calling from roversim
+    {
+    	ArrayList<SimpleEntry<String,String>> result = new ArrayList<SimpleEntry<String,String>>();
+    	for (Agent agent : this.getAgents()) {
+            for (NodeVariable variable : agent.getVariables()) {
+                try {
+                	result.add(new SimpleEntry<String,String>(variable.toString(), variable.getStateArgument().toString()));
+                } catch (Exception e) {
+                	result.add(new SimpleEntry<String,String>(variable.toString(), "err"));
+                }
+            }
+        }
+    	return result;
     }
 
     /**

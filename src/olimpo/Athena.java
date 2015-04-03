@@ -575,6 +575,7 @@ public class Athena implements Solver {
         
         
     }
+    
 
     public String stringStatus(int iteration){
         //String status = "";

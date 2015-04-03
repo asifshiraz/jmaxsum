@@ -26,6 +26,7 @@ import function.TabularFunction;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -65,7 +66,7 @@ public class Cerberus {
     public static COP_Instance getInstanceFromFile(String fname, boolean oldFormat, int MaxValue, double MultConst) throws InvalidInputFileException{
     	BufferedReader breader = null;
     	try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fname)));
+            breader = new BufferedReader(new FileReader(fname));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -251,6 +252,7 @@ public class Cerberus {
         }catch (IOException e) {
             throw new InvalidInputFileException();
         }catch (Exception e) {
+        	System.out.println(e.toString());
             throw new InvalidInputFileException();
         }
 

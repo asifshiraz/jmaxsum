@@ -8,9 +8,14 @@ import boundedMaxSum.BoundedMaxSum;
 import boundedMaxSum.InstanceCloner;
 import hacks.ScrewerUp;
 
+import java.io.BufferedReader;
+import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.AbstractMap.SimpleEntry;
 
 import exception.InvalidInputFileException;
+import exception.PostServiceNotSetException;
 import maxsum.MS_COP_Instance;
 import misc.Utils;
 import system.COP_Instance;
@@ -42,8 +47,8 @@ public class Main {
         try {
 
             String[] paths = {
-            	"D:\\EclipseWorkspace\\jmaxsum\\copTest.cop2",
-                //"/home/mik/NetBeansProjects/jMaxSumSVN/input.cop2",
+            	//"D:\\EclipseWorkspace\\jmaxsum\\copTest.cop2",
+                "D:\\EclipseWorkspace\\jmaxsum\\RoverCop.cop2",
                 //"/home/mik/NetBeansProjects/maxSum/paper.cop2",
                 //"/home/mik/NetBeansProjects/maxSum/paper_multi.cop2",
                 //"/home/mik/NetBeansProjects/maxSum/simpleTest.cop2",
@@ -288,16 +293,24 @@ public class Main {
         System.out.println("Finish in " + ((System.currentTimeMillis() - startTime) / (double) 1000) + " s");
     }
     
-    public double CalculateMaxSum(int[] inputs)
+    public ArrayList<SimpleEntry<String, String>> CalculateMaxSumAssignments(String inputCop)
     {
-    	boolean oldformatV = false;
-    	COP_Instance input_cop;
     	try {
-			COP_Instance original_cop = Cerberus.getInstanceFromFile("", oldformatV,100,10000);
-		} catch (InvalidInputFileException e) {
+    		BufferedReader br = new BufferedReader(new StringReader(inputCop));
+			COP_Instance cop = Cerberus.getInstanceFromFile("", false,100,10000);
+			Athena athena = new Athena(cop, "min", "sum"); 
+			Solver core = athena;
+            core.setIterationsNumber(2500);
+            core.setStepbystep(false);
+            core.setUpdateOnlyAtEnd(!false);
+            core.setUpdateOnlyAtEnd(!false);
+            core.solve();
+            return athena.getCop().GetMaxValues();
+            
+		} catch (InvalidInputFileException | PostServiceNotSetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	return 1;
+    	return null;
     }
 }
