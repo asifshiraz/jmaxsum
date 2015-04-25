@@ -49,7 +49,9 @@ public class Main {
             String[] paths = {
             	//"D:\\EclipseWorkspace\\jmaxsum\\copTest.cop2",
                 "D:\\EclipseWorkspace\\jmaxsum\\RoverCop.cop2",
-                //"/home/mik/NetBeansProjects/maxSum/paper.cop2",
+            	//"D:\\EclipseWorkspace\\jmaxsum\\SimpleTest.cop2",
+            	//"D:\\EclipseWorkspace\\jmaxsum\\test_infinity_0.cop2",
+            	//"/home/mik/NetBeansProjects/maxSum/paper.cop2",
                 //"/home/mik/NetBeansProjects/maxSum/paper_multi.cop2",
                 //"/home/mik/NetBeansProjects/maxSum/simpleTest.cop2",
                 //"/home/mik/NetBeansProjects/maxSum/test43.cop2",

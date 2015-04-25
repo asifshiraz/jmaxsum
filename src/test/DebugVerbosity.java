@@ -85,7 +85,7 @@ public class DebugVerbosity {
     public static final int debugUtils = 0
             + DebugVerbosity.debug;
 
-    public static final int debugMain = 0
+    public static final int debugMain = 1
             + DebugVerbosity.debug;
     
     public static final int debugRMessageList = 0
