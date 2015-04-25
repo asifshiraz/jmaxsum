@@ -94,7 +94,7 @@ public class Main {
                 boolean screwupV = false;
                 boolean boundedV = false;
                 String solverV = "athena";
-                String oplusV = "min";
+                String oplusV = "max";//change to min for min operation
                 String otimesV = "sum";
 
                 int iterationsV = 2500;
