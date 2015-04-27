@@ -299,8 +299,8 @@ public class Main {
     {
     	try {
     		BufferedReader br = new BufferedReader(new StringReader(inputCop));
-			COP_Instance cop = Cerberus.getInstanceFromFile("", false,100,10000);
-			Athena athena = new Athena(cop, "min", "sum"); 
+			COP_Instance cop = Cerberus.getInstanceFromFile(br, false,100,10000);
+			Athena athena = new Athena(cop, "max", "sum"); 
 			Solver core = athena;
             core.setIterationsNumber(2500);
             core.setStepbystep(false);
